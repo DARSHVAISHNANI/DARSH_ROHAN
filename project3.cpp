@@ -9,7 +9,7 @@ here by default the password is admin*/
 #include <iostream>
 
 using namespace std;
-
+//decalration for book edition section
 class book
 {
     char book_number[30];
@@ -55,7 +55,7 @@ public:
         cout << book_number << setw(30) << book_name << setw(30) << author_name << endl;
     }
 };
-
+//declartion for student edition
 class student
 {
     char ID_number[20];
@@ -83,6 +83,7 @@ public:
         if (token == 1)
             cout << "\nBook No " << stbno;
     }
+    //to modify the student details
     void modify_student()
     {
         cout << "\nID Number: " << ID_number;
@@ -408,6 +409,7 @@ void book_return()
     cin >> sn;
     fp.open("student.dat", ios::in | ios::out);
     fp1.open("book.dat", ios::in | ios::out);
+    //condition to check the data from file "student.dat and book.dat"
     while (fp.read((char *)&st, sizeof(student)) && found == 0)
     {
         if (strcmpi(st.get_ID_number(), sn) == 0)
@@ -425,7 +427,7 @@ void book_return()
                         cin >> day;
                         if (day > 15)
                         {
-                            fine = (day - 15) * 1;
+                            fine = (day - 15) * 3;
                             cout << "\n\nThe Book is last. You have to pay a fine of  " << fine;
                         }
                         st.resettoken();
@@ -514,6 +516,7 @@ void student_menu()
     int option;
     for (int i = 0; i < 70; i++)
         cout << "*";
+    
     cout << endl
          << "\t\t*********** WELCOME TO STUDENT EDITION : ***********" << endl;
     cout << "\n\t\t1). Press 1 :: CREATE STUDENT RECORD" << endl;
@@ -524,6 +527,7 @@ void student_menu()
     cout << "\n\t\t6). Press 6 :: GO BACK TO MAIN MENU\n"<< endl;
     for (int i = 0; i < 70; i++)
         cout << "*";
+    
     cout << "\n\t\tOption: ";
     cin >> option;
     switch (option)
@@ -534,7 +538,6 @@ void student_menu()
         break;
     case 2:
         system("cls");
-
         display_all_students();
         break;
     case 3:
@@ -564,7 +567,7 @@ int main()
 
     for (int i = 0; i < 5; i++)
     {
-        cout << "Enter the password : ";
+        cout << "Enter the password to open the library managment system : ";
         cin >> pass;
 
         if (pass == "admin")
@@ -576,6 +579,7 @@ int main()
 
                 for (int i = 0; i < 70; i++)
                     cout << "*";
+                
                 cout << endl
                      << "\t\t*********** WELCOME ADMIN : ***********" << endl;
                 cout << "\n\t\t1). Press 1 :: ISSUE BOOKS" << endl;
