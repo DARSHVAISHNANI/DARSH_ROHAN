@@ -450,3 +450,180 @@ void book_return()
     fp.close();
     fp1.close();
 }
+void intro()
+{
+    system("color 03");
+    system("cls");
+    cout<<"\t\t********* WELCOME TO LIBRARY MANAGEMENT SYSTEM : ********* "<<endl;
+    cout << "\t\t\t" << (char)004 << setw(11) << (char)004 << setw(6) << (char)004 << setw(3) << (char)004 << " " << (char)004 << " " << (char)004 << " " << (char)004 << " " << (char)004 << endl;
+    cout << "\t\t\t" << (char)004 << setw(11) << (char)004 << setw(1) << (char)004 << setw(4) << (char)004 << setw(1) << (char)004 << setw(3) << (char)004 << endl;
+    cout << "\t\t\t" << (char)004 << setw(11) << (char)004 << setw(2) << (char)004 << setw(2) << (char)004 << setw(2) << (char)004 << setw(3) << (char)004 << endl;
+    cout << "\t\t\t" << (char)004 << setw(11) << (char)004 << setw(3) << (char)004 << setw(3) << (char)004 << setw(3) << (char)004 << " " << (char)004 << " " << (char)004 << " " << (char)004 << " " << (char)004 << endl;
+    cout << "\t\t\t" << (char)004 << setw(11) << (char)004 << setw(6) << (char)004 << setw(5) << "          " << (char)004 << endl;
+    cout << "\t\t\t" << (char)004 << setw(11) << (char)004 << setw(6) << (char)004 << setw(5) << "          " << (char)004 << endl;
+    cout << "\t\t\t" << (char)004 << setw(2) << (char)004 << setw(2) << (char)004 << setw(2) << (char)004 << setw(2) << (char)004 << setw(3) << (char)004 << setw(6) << (char)004 << setw(3) << (char)004 << " " << (char)004 << " " << (char)004 << " " << (char)004 << " " << (char)004 << endl;
+}
+void book_menu()
+{
+    int option;
+    for (int i = 0; i < 70; i++)
+    {
+        cout << "*";
+    }
+    cout << endl
+         << "\t\t*********** WELCOME TO BOOK EDITION : ***********" << endl;
+    cout << "\n\t\t1). Press 1 :: CREATE BOOKS" << endl;
+    cout << "\n\t\t2). Press 2 :: DISPLAY ALL BOOKS" << endl;
+    cout << "\n\t\t3). Press 3 :: DISPLAY SPECIFIC BOOK" << endl;
+    cout << "\n\t\t4). Press 4 :: MODIFY BOOKS" << endl;
+    cout << "\n\t\t5). Press 5 :: DELETE BOOKS" << endl;
+    cout << "\n\t\t6). Press 6 :: GO BACK TO MAIN MENU" << endl;
+
+    cout << "\n\t\tOption: ";
+    cin >> option;
+    switch (option)
+    {
+    case 1:
+        system("cls");
+        write_book();
+        break;
+    case 2:
+        display_allb();
+        break;
+    case 3:
+        char num[20];
+        system("cls");
+        cout << "\n\n\tPlease Enter The book No. ";
+        cin >> num;
+        display_a_book(num);
+        break;
+    case 4:
+        modify_book();
+        break;
+    case 5:
+        delete_book();
+        break;
+    case 6:
+        system("cls");
+        break;
+    default:
+        cout << "\a";
+    }
+}
+void student_menu()
+{
+    int option;
+    for (int i = 0; i < 70; i++)
+        cout << "*";
+    cout << endl
+         << "\t\t*********** WELCOME TO STUDENT EDITION : ***********" << endl;
+    cout << "\n\t\t1). Press 1 :: CREATE STUDENT RECORD" << endl;
+    cout << "\n\t\t2). Press 2 :: DISPLAY ALL STUDENTS RECORD" << endl;
+    cout << "\n\t\t3). Press 3 :: DISPLAY SPECIFIC STUDENT RECORD" << endl;
+    cout << "\n\t\t4). Press 4 :: MODIFY STUDENT RECORD" << endl;
+    cout << "\n\t\t5). Press 5 :: DELETE STUDENT RECORD" << endl;
+    cout << "\n\t\t6). Press 6 :: GO BACK TO MAIN MENU\n"<< endl;
+    for (int i = 0; i < 70; i++)
+        cout << "*";
+    cout << "\n\t\tOption: ";
+    cin >> option;
+    switch (option)
+    {
+    case 1:
+        system("cls");
+        write_student();
+        break;
+    case 2:
+        system("cls");
+
+        display_all_students();
+        break;
+    case 3:
+        char num[20];
+        system("cls");
+        cout << "\n\n\tPlease Enter The ID Number: ";
+        cin >> num;
+        display_a_student(num);
+        break;
+    case 4:
+        system("cls");
+        modify_student();
+        break;
+    case 5:
+        system("cls");
+        delete_student();
+        break;
+    case 6:
+        break;
+    default:
+        cout << "\a";
+    }
+}
+int main()
+{
+    string pass;
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "Enter the password : ";
+        cin >> pass;
+
+        if (pass == "admin")
+        {
+            int option = 0;
+            for (;;)
+            {
+                intro();
+
+                for (int i = 0; i < 70; i++)
+                    cout << "*";
+                cout << endl
+                     << "\t\t*********** WELCOME ADMIN : ***********" << endl;
+                cout << "\n\t\t1). Press 1 :: ISSUE BOOKS" << endl;
+                cout << "\n\t\t2). Press 2 :: RETURN BOOKS" << endl;
+                cout << "\n\t\t3). Press 3 :: UPDATE STUDENT RECORDS" << endl;
+                cout << "\n\t\t4). Press 4 :: UPDATE BOOK RECORDS" << endl;
+                cout << "\n\t\t5). Press 5 :: TO EXIT" << endl;
+                for (int i = 0; i < 70; i++)
+                    cout << "*";
+                cout << "\n\t\tOption: ";
+                cin >> option;
+                switch (option)
+                {
+                case 1:
+                    system("cls");
+                    issue_book();
+                    break;
+                case 2:
+                    system("cls");
+                    book_return();
+                    break;
+                case 3:
+                    system("cls");
+                    student_menu();
+                    break;
+                case 4:
+                    system("cls");
+                    book_menu();
+                    break;
+                case 5:
+                    exit(0);
+                    break;
+                default:
+                    cout << "\a";
+                    exit(0);
+                }
+            }
+        }
+        else
+        {
+            if (i == 4)
+                cout << "The system has been locked " << endl;
+            else
+            {
+                cout << "Wrong password" << endl;
+                cout << "Now you have " << 4 - i << endl;
+            }
+        }
+    }
+}
